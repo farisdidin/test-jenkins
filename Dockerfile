@@ -2,12 +2,12 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+ENV PATH /app/node_modules/.bin:$PATH
 
+# install and cache app dependencies
+COPY package.json /app/package.json
 RUN npm install
+RUN npm install @vue/cli@4.5.4 -g
 
-COPY ./dist .
-
-EXPOSE 8080
-
-RUN npm run build
+# start app
+CMD ["npm", "run", "serve"]
