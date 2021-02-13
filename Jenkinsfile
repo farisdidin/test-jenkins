@@ -12,14 +12,6 @@ node {
        app = docker.build("farisdidin/test-vue")
     }
 
-    stage('Test image') {
-  
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
-
     stage('Push image') {
         
         docker.withRegistry('https://registry.hub.docker.com', 'git') {
