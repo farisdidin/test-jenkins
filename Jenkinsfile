@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("paykita.jfrog.io/jenkins-repo/test-vue","--target builder")
+       app = docker.build("paykita.jfrog.io/jenkins-repo/test-vue","--target builder .")
     }
 
     stage('Push image') {
