@@ -14,7 +14,7 @@ node {
 
     stage('Push image') {
         
-        docker.withRegistry('https://paykita.jfrog.io', 'git') {
+        docker.withRegistry('https://paykita.jfrog.io', 'jfrog') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
